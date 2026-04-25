@@ -5,6 +5,9 @@ import com.abd.JDBCDEMO.service.StudentService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+
+import java.util.List;
+
 @SpringBootApplication
 public class JdbcdemoApplication {
 
@@ -14,10 +17,11 @@ public class JdbcdemoApplication {
 		Student student=context.getBean(Student.class);
 		student.setMarks(20);
 		student.setName("Abdulrehman");
-		student.setRollNo(11);
+		student.setRollNo(544);
 		StudentService service=context.getBean(StudentService.class);
 		service.addStudent(student);
-		service.getStudents();
+		List<Student> s=service.getStudents();
+		System.out.println("Students are"+s);
 	}
 
 }
